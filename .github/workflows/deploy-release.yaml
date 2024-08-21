@@ -6,6 +6,11 @@ on:
     branches: # Remember to enforce this in the environment protection rules
       - "release/**"
       - "hotfix/**"
+    paths:
+      - "**"
+      - "!README.md"
+      - "!.gitignore"
+      - "!.github/**"
 
 jobs:
   build: 

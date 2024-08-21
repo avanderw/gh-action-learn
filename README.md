@@ -11,6 +11,7 @@ This repository is a playground for testing Github actions workflows.
 ## Guidelines
 
 - Only build when there are changes to the build or source.
+- Workflow changes should not trigger release builds.
 
 ## Deploy feature
 

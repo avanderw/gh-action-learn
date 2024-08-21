@@ -11,4 +11,4 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Build Docker Image
-        uses: ./.github/actions/build
+        uses: ./.github/actions/build.yaml

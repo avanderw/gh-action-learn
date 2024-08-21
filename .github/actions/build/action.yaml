@@ -5,6 +5,8 @@ runs:
   steps:
     - name: Compile application
       run: echo "Compiling the application..."
+      shell: bash
       
     - name: Build Container
       run: echo "Building the Docker image..."
+      shell: bash

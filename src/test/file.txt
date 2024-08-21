@@ -1,2 +1,3 @@
 Change to test the feature branch push: WORKS
 Change to test new bugfix branch creation: WORKS (requires new commit)
+Bundled source and doc changes auto-trigger: UNKOWN

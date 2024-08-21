@@ -5,6 +5,10 @@ on:
   push: 
     branches: # Remember to enforce this in the environment protection rules
       - main
+    paths:
+      - "**"
+      - "!README.md"
+      - "!.gitignore"
 
 jobs:
   build: 

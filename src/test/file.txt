@@ -1,1 +1,2 @@
-Making this change to test the feature branch push.
+Change to test the feature branch push: WORKS
+Change to test new bugfix branch creation: UNKNOWN

@@ -1,0 +1,10 @@
+name: "Build"
+description: "Build the app into a container"
+runs:
+  using: "composite"
+  steps:
+    - name: Compile application
+      run: echo "Compiling the application..."
+      
+    - name: Build Container
+      run: echo "Building the Docker image..."

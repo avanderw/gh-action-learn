@@ -1,2 +1,2 @@
 Change to test the feature branch push: WORKS
-Change to test new bugfix branch creation: UNKNOWN
+Change to test new bugfix branch creation: WORKS (requires new commit)

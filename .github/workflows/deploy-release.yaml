@@ -1,11 +1,16 @@
-name: Quality Assurance
+name: Deploy a Release
 
 on: 
   workflow_dispatch:
+  push: 
+    branches: # Remember to enforce this in the environment protection rules
+      - "release/**"
+      - "hotfix/**"
 
 jobs:
   build: 
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/build

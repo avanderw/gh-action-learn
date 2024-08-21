@@ -1,0 +1,20 @@
+name: Publish Build
+on: 
+  workflow_call:
+  
+jobs:
+  build: 
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compile application
+        run: echo "Compiling the application..."
+        shell: bash
+      
+      - name: Build Container
+        run: echo "Building the Docker image..."
+        shell: bash
+
+      - name: Publish Container
+        run: echo "Publishing the Docker image..."
+        shell: bash

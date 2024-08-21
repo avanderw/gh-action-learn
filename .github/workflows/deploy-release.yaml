@@ -13,9 +13,12 @@ on:
       - "!.github/**"
 
 jobs:
-  build: 
-    name: Build
+  build:
+    uses: ./.github/workflows/publish.yaml
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/build
+      - name: Deploy
+        run: echo "Deploying the application..."
+        shell: bash 

@@ -1,0 +1,25 @@
+name: Deploy a Feature
+on: 
+  workflow_dispatch:
+  push: 
+    branches:
+      - "develop"
+      - "feature/**"
+      - "!feature/**-alpha"
+      - "hotfix/**"
+      - "!hotfix/**-alpha"
+      - "bugfix/**"
+      - "!bugfix/**-alpha"
+      - "release/**"
+      - "!release/**-alpha"
+    paths:
+      - "!README.md"
+      - "!.gitignore"
+
+jobs:
+  build: 
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/build

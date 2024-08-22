@@ -24,12 +24,14 @@ runs:
       run: echo "First input $INPUT"
       shell: bash
       env:
-        INPUT: ${{inputs.input-1}}
+        INPUT: ${{ inputs.input-1 }}
 
     - name: Compile application
-      run: echo "Compiling the application..."
+      run: echo "Compiling the application $RND..."
       shell: bash
-      
+      env:
+        RND: ${{ outputs.output-1 }}
+
     - name: Build Container
       run: echo "Building the Docker image..."
       shell: bash

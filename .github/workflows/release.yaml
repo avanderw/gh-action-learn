@@ -17,8 +17,7 @@ jobs:
   
   deploy:
     name: Deploy with Needs
-    needs:
-      - build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
@@ -30,6 +29,7 @@ jobs:
   notify:
     name: Notify without Needs
     runs-on: ubuntu-latest
+    needs: deploy
     steps:
       - name: Notify
         run: echo "Notifying the team $RND..."

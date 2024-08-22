@@ -10,7 +10,7 @@ inputs:
 outputs:
   output-1:
     description: "First output"
-    value: ${{steps.first-step.outputs.random-number}}
+    value: ${{ steps.first-step.outputs.random-number }}
 
 runs:
   using: "composite"
@@ -30,7 +30,7 @@ runs:
       run: echo "Compiling the application $RND..."
       shell: bash
       env:
-        RND: ${{ outputs.output-1 }}
+        RND: ${{ steps.first-step.outputs.random-number }}
 
     - name: Build Container
       run: echo "Building the Docker image..."

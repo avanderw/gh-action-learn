@@ -1,0 +1,24 @@
+name: Release
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  action:
+    name: Test Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test Action
+        id: test-action
+        uses: ./.github/actions/test-action
+        with:
+          input-1: "Hello, World!"
+
+      - name: Test Output
+        run: echo "Output $OUTPUT"
+        shell: bash
+        env:
+          OUTPUT: ${{ steps.test-action.outputs.output-1 }}

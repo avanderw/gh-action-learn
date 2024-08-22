@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify
-        run: echo "Notifying the team..."
+        run: echo "Notifying the team $RND..."
         shell: bash
         env:
           RND: ${{ job.build.outputs.output-1 }}

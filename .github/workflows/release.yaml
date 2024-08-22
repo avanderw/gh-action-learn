@@ -35,4 +35,4 @@ jobs:
         run: echo "Notifying the team $RND..."
         shell: bash
         env:
-          RND: ${{ job.build.outputs.output-1 }}
+          RND: ${{ needs.build.outputs.output-1 }}

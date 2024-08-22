@@ -22,7 +22,7 @@ runs:
 
     - name: Use input
       run: echo "First input $INPUT"
-      shel: bash
+      shell: bash
       env:
         INPUT: ${{inputs.input-1}}
 

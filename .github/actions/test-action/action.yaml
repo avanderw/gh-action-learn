@@ -1,11 +1,7 @@
 name: "Build"
 description: "Build the app into a container"
 
-inputs:
-  input-1:
-    description: "First input"
-    required: true
-    default: "Not set"
+inputs.input-1.required: true
 
 outputs:
   output-1:

@@ -1,8 +1,31 @@
 name: "Build"
 description: "Build the app into a container"
+
+inputs:
+  input-1:
+    description: "First input"
+    required: true
+    default: "Not set"
+
+outputs:
+  output-1:
+    description: "First output"
+    value: ${{steps.first-step.outputs.random-number}}
+
 runs:
   using: "composite"
   steps:
+    - name: Random
+      id: first-step
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Use input
+      run: echo "First input $INPUT"
+      shel: bash
+      env:
+        INPUT: ${{inputs.input-1}}
+
     - name: Compile application
       run: echo "Compiling the application..."
       shell: bash

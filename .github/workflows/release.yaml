@@ -14,10 +14,25 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/publish.yaml
+  
   deploy:
-    name: Deploy
+    name: Deploy with Needs
+    needs:
+      - build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
-        run: echo "Deploying the application..."
+        run: echo "Deploying the application $RND..."
         shell: bash 
+        env:
+          RND: ${{ needs.build.outputs.output-1 }}
+  
+  notify:
+    name: Notify without Needs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify
+        run: echo "Notifying the team..."
+        shell: bash
+        env:
+          RND: ${{ job.build.outputs.output-1 }}

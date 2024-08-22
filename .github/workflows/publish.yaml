@@ -1,18 +1,31 @@
 name: Publish Build
 on: 
   workflow_call:
+    outputs:
+      output-1:
+        description: "First output"
+        value: ${{ jobs.build.outputs.output-1 }}
   
 jobs:
   build: 
     name: Build
     runs-on: ubuntu-latest
+    outputs:
+      output-1: ${{ steps.compile.outputs.out }}
+      output-2: ${{ steps.build.outputs.out }}
     steps:
       - name: Compile application
-        run: echo "Compiling the application..."
+        id: compile
+        run: |
+          echo "Compiling the application..."
+          echo "out=$(echo $RANDOM)" >> $GITHUB_OUTPUT
         shell: bash
       
       - name: Build Container
-        run: echo "Building the Docker image..."
+        id: build
+        run: |
+          echo "Building the Docker image..."
+          echo "out=$(echo $RANDOM)" >> $GITHUB_OUTPUT
         shell: bash
 
       - name: Publish Container
